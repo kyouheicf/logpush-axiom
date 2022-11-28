@@ -16,7 +16,7 @@ export default {
 		const enc = new TextDecoder("utf-8");
 		if (enc.decode(compressed).trim() === '{"content":"test","filename":"test.txt"}') {
 			const json = '{"content":"test","filename":"test.txt"}';
-			return await fetch(`https://cloud.axiom.co/api/v1/datasets/${env.DATASET_NAME}/ingest`, {
+			return await fetch(`https://cloud.axiom.co/api/v1/datasets/${env.AXIOM_DATASET_NAME}/ingest`, {
 				method: "POST",
 				body: json,
 				headers: {
@@ -35,7 +35,7 @@ export default {
 		const ndjson = enc.decode(decompressed)
 
 		// Ingest to Axiom
-		return await fetch(`https://cloud.axiom.co/api/v1/datasets/${env.DATASET_NAME}/ingest`, {
+		return await fetch(`https://cloud.axiom.co/api/v1/datasets/${env.AXIOM_DATASET_NAME}/ingest`, {
 			method: "POST",
 			body: ndjson,
 			headers: {
