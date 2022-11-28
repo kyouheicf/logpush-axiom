@@ -34,7 +34,7 @@ export default {
 		const decompressed = new Uint8Array(buffer)
 		const ndjson = enc.decode(decompressed)
 
-		// Ingest to Axion
+		// Ingest to Axiom
 		return await fetch(`https://cloud.axiom.co/api/v1/datasets/${env.DATASET_NAME}/ingest`, {
 			method: "POST",
 			body: ndjson,
